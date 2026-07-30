@@ -38,7 +38,9 @@ jobs:
         with:
           images: ghcr.io/${{ github.repository }}
           tags: |
-            type=raw,value=latest
+            # 只用版本号打标签
+            type=raw,value=${{ env.DERP_VERSION }}
+            # 日期标签保留，便于追溯（如 20260131-abc123）
             type=sha,prefix={{date 'YYYYMMDD'}}-
 
       - name: Build and push Docker image
