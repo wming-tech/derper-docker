@@ -11,8 +11,8 @@ WORKDIR /app
 COPY --from=builder /go/bin/derper .
 
 # 创建证书目录并拷贝证书
-RUN mkdir /ssl
-COPY ssl/ /ssl/
+# RUN mkdir /ssl
+# COPY ssl/ /ssl/
 
 # 时区设置（可选）
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
