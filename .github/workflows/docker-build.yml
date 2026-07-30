@@ -1,7 +1,12 @@
 name: Build DERP Docker Image for Synology DS1525+
 
+# 仅手动触发
 on:
   workflow_dispatch:
+
+# 版本号统一在这里维护（只需要改这一个地方）
+env:
+  DERP_VERSION: v1.100.0  # ← 以后升级版本只改这里
 
 jobs:
   build-and-push-image:
@@ -42,5 +47,8 @@ jobs:
           context: .
           push: true
           platforms: linux/amd64  # ← DS1525+ 专用
+           # 把版本号传入 Dockerfile 的 ARG
+          build-args: |
+            DERP_VERSION=${{ env.DERP_VERSION }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
