@@ -1,6 +1,6 @@
 # 编译阶段
 FROM golang:alpine AS builder
-RUN go env -w GOPROXY=https://goproxy.cn,direct
+# RUN go env -w GOPROXY=https://goproxy.cn,direct
 RUN go install tailscale.com/cmd/derper@latest
 
 # 运行阶段
