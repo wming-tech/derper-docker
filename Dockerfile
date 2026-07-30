@@ -1,11 +1,15 @@
 # 编译阶段
 FROM golang:alpine AS builder
 
+# 接收从 YAML 传入的版本号
+ARG DERP_VERSION
+
+# 安装 git（go install 拉取源码必需）
 RUN apk add --no-cache git
 
 # RUN go env -w GOPROXY=https://goproxy.cn,direct
 
-RUN go install tailscale.com/cmd/derper@v1.100.0
+RUN go install tailscale.com/cmd/derper@${DERP_VERSION}
 
 # 运行阶段
 FROM alpine:latest
