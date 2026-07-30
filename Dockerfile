@@ -1,7 +1,11 @@
 # 编译阶段
 FROM golang:alpine AS builder
+
+RUN apk add --no-cache git
+
 # RUN go env -w GOPROXY=https://goproxy.cn,direct
-RUN go install tailscale.com/cmd/derper@V1.100.0
+
+RUN go install tailscale.com/cmd/derper@v1.100.0
 
 # 运行阶段
 FROM alpine:latest
