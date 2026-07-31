@@ -26,7 +26,7 @@ COPY --from=builder /go/bin/derper .
 RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
     echo 'Asia/Shanghai' > /etc/timezone
 
-ENV LANG C.UTF-8
+ENV LANG=C.UTF-8
 
 COPY entrypoint.sh /entrypoint.sh
 RUN chmod +x /entrypoint.sh
