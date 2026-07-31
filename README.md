@@ -1,5 +1,5 @@
 # derper-officialcode-build-docker
 
-copy &amp; build docker image on official code of tailscale/cmd/derper
+copy & build docker image on official code of **"tailscale/cmd/derper"**
 
-the tag in releases is consistent with the tage of code source
+the tag in release is consistent with the tag of code source
