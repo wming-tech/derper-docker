@@ -28,4 +28,7 @@ RUN ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
 
 ENV LANG C.UTF-8
 
-CMD ["./derper", "-hostname", "derp.example.com", "-a", ":443", "-certmode", "manual", "-certdir", "/ssl"]
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+ENTRYPOINT ["/entrypoint.sh"]
